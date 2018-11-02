@@ -1,0 +1,50 @@
+{
+  "id": 60,
+  "username": "yieldplanet",
+  "email": "user@yieldplanet.com",
+  "type": "hotelier",
+  "isVerified": false,
+  "status": "active",
+  "createdAt": {
+    "date": "2016-11-25 17:08:33.000000",
+    "timezone_type": 3,
+    "timezone": "Europe/Istanbul"
+  },
+  "updatedAt": {
+    "date": "2018-01-04 15:39:28.000000",
+    "timezone_type": 3,
+    "timezone": "Europe/Istanbul"
+  },
+  "userHotelier": {
+    "id": 30,
+    "channelManagerRateOption": "per-pax",
+    "updatedAt": null,
+    "channelManager": {
+      "id": 2,
+      "name": "EzYield",
+      "businessContactEmail": "test@gmail.com",
+      "technicalContactEmail": "test@gmail.com",
+      "slug": "ezyield",
+      "status": "active",
+      "authType": "no-auth",
+      "username": null,
+      "password": null,
+      "requestorId": null,
+      "companyCode": "0",
+      "companyName": null,
+      "connectivityType": "proxy",
+      "notificationType": "pull",
+      "createdAt": {
+        "date": "2016-05-13 10:09:43.000000",
+        "timezone_type": 3,
+        "timezone": "Europe/Istanbul"
+      },
+      "updatedAt": {
+        "date": "2018-09-05 12:05:35.000000",
+        "timezone_type": 3,
+        "timezone": "Europe/Istanbul"
+      }
+    },
+    "channelManagerEndpoint": null
+  }
+}

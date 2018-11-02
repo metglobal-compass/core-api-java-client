@@ -1,0 +1,64 @@
+{
+    "id": 276,
+    "code": "ECODOUROM",
+    "name": "Economic Double Room",
+    "priority": null,
+    "prefix": null,
+    "suffix": null,
+    "adultPax": 2,
+    "adultMinPax": 1,
+    "adultMaxPax": 2,
+    "childMaxPax": 1,
+    "totalPax": 3,
+    "childMaxAge": 12,
+    "babyMaxAge": 2,
+    "childMinAge": 0,
+    "status": "active",
+    "thresholdRate": "50.00",
+    "createdAt": {
+        "date": "2017-09-13 09:36:24.000000",
+        "timezone_type": 3,
+        "timezone": "Europe/Istanbul"
+    },
+    "updatedAt": null,
+    "roomCategory": {
+        "id": 1,
+        "name": "Economic",
+        "code": "ECO",
+        "status": "active",
+        "createdAt": {
+            "date": "2016-05-13 10:09:43.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Istanbul"
+        },
+        "updatedAt": null
+    },
+    "roomType": {
+        "id": 2,
+        "name": "Double",
+        "code": "DOU",
+        "adultPax": 2,
+        "adultMinPax": 1,
+        "adultMaxPax": 3,
+        "childMaxPax": 1,
+        "status": "active",
+        "createdAt": {
+            "date": "2016-05-13 10:09:43.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Istanbul"
+        },
+        "updatedAt": null
+    },
+    "roomView": {
+        "id": 45,
+        "name": "Room",
+        "code": "ROM",
+        "status": "active",
+        "createdAt": {
+            "date": "2016-06-07 15:08:12.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Istanbul"
+        },
+        "updatedAt": null
+    }
+}

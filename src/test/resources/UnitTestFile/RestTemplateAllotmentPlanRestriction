@@ -1,0 +1,56 @@
+[
+    {
+        "id": 46745,
+        "date": {
+            "date": "2017-10-10 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Istanbul"
+        },
+        "allotment": 11,
+        "baseAllotment": null,
+        "baseAllotmentOption": null,
+        "status": "open",
+        "createdAt": {
+            "date": "2017-10-02 14:57:26.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Istanbul"
+        },
+        "updatedAt": null
+    },
+    {
+        "id": 46747,
+        "date": {
+            "date": "2017-10-11 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Istanbul"
+        },
+        "allotment": 11,
+        "baseAllotment": null,
+        "baseAllotmentOption": null,
+        "status": "open",
+        "createdAt": {
+            "date": "2017-10-02 14:57:26.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Istanbul"
+        },
+        "updatedAt": null
+    },
+    {
+        "id": 46749,
+        "date": {
+            "date": "2017-10-12 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Istanbul"
+        },
+        "allotment": 11,
+        "baseAllotment": null,
+        "baseAllotmentOption": null,
+        "status": "open",
+        "createdAt": {
+            "date": "2017-10-02 14:57:26.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Istanbul"
+        },
+        "updatedAt": null
+    }
+]

@@ -1,0 +1,43 @@
+[
+    {
+        "id": 416,
+        "commission": "16.00",
+        "status": "active",
+        "createdAt": {
+            "date": "2018-03-30 16:53:37.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Istanbul"
+        },
+        "updatedAt": {
+            "date": "2018-04-05 11:30:25.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Istanbul"
+        },
+        "saleChannel": {
+            "id": 1,
+            "name": "Coral",
+            "type": "B2BC",
+            "createdAt": {
+                "date": "2016-05-13 10:09:43.000000",
+                "timezone_type": 3,
+                "timezone": "Europe/Istanbul"
+            },
+            "updatedAt": null,
+            "status": "active"
+        },
+        "ratePlanSaleChannelExceptions": [
+            {
+                "id": 3,
+                "name": "coral B2C",
+                "type": "B2C",
+                "createdAt": {
+                    "date": "2016-07-25 09:56:58.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                },
+                "updatedAt": null,
+                "status": "active"
+            }
+        ]
+    }
+]

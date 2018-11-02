@@ -1,0 +1,259 @@
+{
+    "page": 1,
+    "perPage": 20,
+    "total": 4,
+    "ratePlans": [
+        {
+            "id": 336,
+            "name": "Test rate plan name #1",
+            "rateType": "net",
+            "pricingType": "stay-period",
+            "cancelOption": "refundable",
+            "isManageableByCm": true,
+            "defaultReleaseRestriction": 0,
+            "defaultMinStayRestriction": 1,
+            "defaultMaxStayRestriction": 30,
+            "defaultCancelType": "night",
+            "defaultCancelAmount": "1.00",
+            "defaultCancelDays": 1,
+            "currencyMultiplier": "1.000",
+            "status": "active",
+            "openTimes": null,
+            "createdAt": {
+                "date": "2017-09-13 09:36:24.000000",
+                "timezone_type": 3,
+                "timezone": "Europe/Istanbul"
+            },
+            "updatedAt": null,
+            "allotmentPlan": {
+                "id": 170,
+                "name": "Test Allotment Plan",
+                "status": "active",
+                "createdAt": {
+                    "date": "2017-09-13 09:36:24.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                },
+                "updatedAt": null
+            },
+            "boardType": {
+                "id": 1,
+                "name": "Bed & Breakfast",
+                "code": "BB",
+                "pdbCode": "BC",
+                "status": "active",
+                "createdAt": {
+                    "date": "2016-05-13 10:09:43.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                },
+                "updatedAt": {
+                    "date": "2016-10-04 11:46:16.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                }
+            },
+            "contractCurrency": {
+                "id": 135,
+                "currencyCode": "EUR",
+                "status": "active",
+                "createdAt": {
+                    "date": "2017-09-13 09:36:23.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                },
+                "updatedAt": null
+            }
+        },
+        {
+            "id": 337,
+            "name": "Test rate plan name #2",
+            "rateType": "net",
+            "pricingType": "stay-period",
+            "cancelOption": "refundable",
+            "isManageableByCm": true,
+            "defaultReleaseRestriction": 0,
+            "defaultMinStayRestriction": 1,
+            "defaultMaxStayRestriction": 30,
+            "defaultCancelType": "night",
+            "defaultCancelAmount": "1.00",
+            "defaultCancelDays": 1,
+            "currencyMultiplier": "1.000",
+            "status": "active",
+            "openTimes": null,
+            "createdAt": {
+                "date": "2017-09-13 09:36:24.000000",
+                "timezone_type": 3,
+                "timezone": "Europe/Istanbul"
+            },
+            "updatedAt": null,
+            "allotmentPlan": {
+                "id": 170,
+                "name": "Test Allotment Plan",
+                "status": "active",
+                "createdAt": {
+                    "date": "2017-09-13 09:36:24.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                },
+                "updatedAt": null
+            },
+            "boardType": {
+                "id": 2,
+                "name": "Room Only",
+                "code": "RO",
+                "pdbCode": "RO",
+                "status": "active",
+                "createdAt": {
+                    "date": "2016-05-13 10:09:43.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                },
+                "updatedAt": {
+                    "date": "2016-10-04 11:46:21.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                }
+            },
+            "contractCurrency": {
+                "id": 135,
+                "currencyCode": "EUR",
+                "status": "active",
+                "createdAt": {
+                    "date": "2017-09-13 09:36:23.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                },
+                "updatedAt": null
+            }
+        },
+        {
+            "id": 474,
+            "name": "HB sale refundable",
+            "rateType": "sale",
+            "pricingType": "stay-period",
+            "cancelOption": "refundable",
+            "isManageableByCm": true,
+            "defaultReleaseRestriction": 0,
+            "defaultMinStayRestriction": 1,
+            "defaultMaxStayRestriction": 30,
+            "defaultCancelType": "percent",
+            "defaultCancelAmount": "2.00",
+            "defaultCancelDays": 1,
+            "currencyMultiplier": null,
+            "status": "active",
+            "openTimes": null,
+            "createdAt": {
+                "date": "2017-11-16 14:05:18.000000",
+                "timezone_type": 3,
+                "timezone": "Europe/Istanbul"
+            },
+            "updatedAt": null,
+            "allotmentPlan": {
+                "id": 170,
+                "name": "Test Allotment Plan",
+                "status": "active",
+                "createdAt": {
+                    "date": "2017-09-13 09:36:24.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                },
+                "updatedAt": null
+            },
+            "boardType": {
+                "id": 3,
+                "name": "Half Board",
+                "code": "HB",
+                "pdbCode": "HB",
+                "status": "active",
+                "createdAt": {
+                    "date": "2016-05-13 10:09:43.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                },
+                "updatedAt": {
+                    "date": "2016-10-04 11:46:27.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                }
+            },
+            "contractCurrency": {
+                "id": 135,
+                "currencyCode": "EUR",
+                "status": "active",
+                "createdAt": {
+                    "date": "2017-09-13 09:36:23.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                },
+                "updatedAt": null
+            }
+        },
+        {
+            "id": 482,
+            "name": "BB sale refundable",
+            "rateType": "sale",
+            "pricingType": "stay-period",
+            "cancelOption": "refundable",
+            "isManageableByCm": true,
+            "defaultReleaseRestriction": 0,
+            "defaultMinStayRestriction": 1,
+            "defaultMaxStayRestriction": 30,
+            "defaultCancelType": "value",
+            "defaultCancelAmount": "1.00",
+            "defaultCancelDays": 1,
+            "currencyMultiplier": null,
+            "status": "active",
+            "openTimes": null,
+            "createdAt": {
+                "date": "2017-11-17 09:03:39.000000",
+                "timezone_type": 3,
+                "timezone": "Europe/Istanbul"
+            },
+            "updatedAt": {
+                "date": "2017-11-22 14:45:20.000000",
+                "timezone_type": 3,
+                "timezone": "Europe/Istanbul"
+            },
+            "allotmentPlan": {
+                "id": 170,
+                "name": "Test Allotment Plan",
+                "status": "active",
+                "createdAt": {
+                    "date": "2017-09-13 09:36:24.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                },
+                "updatedAt": null
+            },
+            "boardType": {
+                "id": 4,
+                "name": "All Inclusive",
+                "code": "AI",
+                "pdbCode": "AI",
+                "status": "active",
+                "createdAt": {
+                    "date": "2016-05-13 10:09:43.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                },
+                "updatedAt": {
+                    "date": "2016-10-04 11:46:33.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                }
+            },
+            "contractCurrency": {
+                "id": 135,
+                "currencyCode": "EUR",
+                "status": "active",
+                "createdAt": {
+                    "date": "2017-09-13 09:36:23.000000",
+                    "timezone_type": 3,
+                    "timezone": "Europe/Istanbul"
+                },
+                "updatedAt": null
+            }
+        }
+    ]
+}
