@@ -1,12 +1,14 @@
 package compass_api.model;
 
+import java.util.HashMap;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class RatePlanRoomRate {
 
     private Date date;
-    private Rate rate;
+    private HashMap<Integer, RateContent> rate;
     private RatePlanRoomRateContractRoom contractRoom;
 
     public Date getDate() {
@@ -17,7 +19,7 @@ public class RatePlanRoomRate {
         return getDate().getDate();
     }
 
-    public Rate getRate() {
+    public HashMap<Integer, RateContent> getRate() {
         return rate;
     }
 

@@ -1,18 +1,18 @@
 package compass_api.service.compass;
 
+import java.util.List;
+import java.util.Map;
+
+import compass_api.model.ContractRoom;
 import compass_api.service.HelperEntityService;
 import compass_api.service.ServiceProperties;
-import compass_api.model.ContractRoom;
+
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
-import java.util.Map;
 
 @EnableConfigurationProperties(ServiceProperties.class)
 public class ContractRoomListService {
