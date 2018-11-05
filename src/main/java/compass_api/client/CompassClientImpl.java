@@ -37,6 +37,7 @@ public class CompassClientImpl implements CompassClient {
     private RatePlanCancelPolicyService ratePlanCancelPolicyService;
     private RatePlanSaleChannelListService ratePlanSaleChannelListService;
     private UserService userService;
+    private ConsumerListService consumerListService;
     private Cache<Object, Object> cache;
 
     public void setRatePlanRoomService(RatePlanRoomService ratePlanRoomService) {
@@ -97,6 +98,10 @@ public class CompassClientImpl implements CompassClient {
 
     public void setUserService(UserService userService) {
         this.userService = userService;
+    }
+
+    public void setConsumerListService(ConsumerListService consumerListService) {
+        this.consumerListService = consumerListService;
     }
 
     public CompassClientImpl(ServiceProperties serviceProperties) {
@@ -190,6 +195,10 @@ public class CompassClientImpl implements CompassClient {
                 new HelperEntityService());
 
         userService = new UserService(serviceProperties, restTemplate, new HelperEntityService());
+
+        consumerListService = new ConsumerListService(
+                serviceProperties, restTemplate, new HelperEntityService()
+        );
     }
 
     @Override
@@ -443,5 +452,10 @@ public class CompassClientImpl implements CompassClient {
         }
 
         return user;
+    }
+
+    @Override
+    public List<Consumer> getConsumersList(HashMap<String, String> headerMap) {
+        return consumerListService.getConsumersList(headerMap);
     }
 }

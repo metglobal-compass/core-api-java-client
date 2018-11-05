@@ -28,4 +28,7 @@ public class AllotmentPlanRoom {
         return contractRoom;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
