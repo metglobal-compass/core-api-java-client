@@ -3,6 +3,7 @@ package compass_api.client;
 import com.google.gson.reflect.TypeToken;
 import compass_api.model.AllotmentPlanRestriction;
 import compass_api.model.AllotmentPlanRoom;
+import compass_api.model.Consumer;
 import compass_api.model.ContractRatePlanList;
 import compass_api.model.RatePlanSaleChannel;
 import compass_api.model.User;
@@ -10,6 +11,7 @@ import compass_api.service.QueryProcessingService;
 import compass_api.service.ServiceProperties;
 import compass_api.service.compass.AllotmentPlanRestrictionService;
 import compass_api.service.compass.AllotmentPlanRoomService;
+import compass_api.service.compass.ConsumerListService;
 import compass_api.service.compass.ContractRatePlanService;
 import compass_api.service.compass.RatePlanSaleChannelListService;
 import compass_api.service.compass.UserService;
@@ -19,6 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -223,5 +226,35 @@ public class CompassClientImplUnitTest {
         User clientUser = client.getUsers(headerMap, 3, queryMap);
 
         assertEquals(responseEntity.getBody(), clientUser);
+    }
+
+    @Test
+    public void getConsumers() {
+        ConsumerListService service = Mockito.mock(ConsumerListService.class);
+
+        List<Consumer> consumerList = new ArrayList<>();
+        Consumer consumer = new Consumer();
+        consumer.setId(1);
+        consumer.setSlug("slug");
+        consumer.setConsumerKey("xxxx");
+        consumerList.add(consumer);
+
+        ResponseEntity<List<Consumer>> consumerListResponseEntity = new ResponseEntity<>(
+                consumerList, HttpStatus.OK
+        );
+
+        ServiceProperties serviceProperties = new ServiceProperties();
+        CompassClientImpl client = new CompassClientImpl(serviceProperties);
+        client.setConsumerListService(service);
+
+        HashMap<String, String> headerMap = new HashMap<>();
+        headerMap.put("x-user-id", "1");
+        headerMap.put("x-consumer-key", "1");
+
+        when(service.getConsumersList(headerMap)).thenReturn(consumerListResponseEntity.getBody());
+
+        List<Consumer> clientConsumers = client.getConsumersList(headerMap);
+
+        assertEquals(consumerListResponseEntity.getBody(), clientConsumers);
     }
 }
