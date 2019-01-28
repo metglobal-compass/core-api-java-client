@@ -9,6 +9,7 @@ public class CreditCard {
     private Integer securityCode;
     private String type;
     private String expireDate;
+    private String cardExpireDate;
     private String processId;
     private String provider;
     private Integer balance;
@@ -50,5 +51,9 @@ public class CreditCard {
 
     public String getClientName() {
         return clientName;
+    }
+
+    public String getCardExpireDate() {
+        return cardExpireDate;
     }
 }
