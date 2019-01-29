@@ -11,6 +11,7 @@ public class Contract {
     private Integer childMaxPax;
     private String ratePlanType;
     private List<ContractRoom> contractRooms;
+    private List<ContractUser> users;
 
     public Integer getId() {
         return id;
@@ -66,5 +67,13 @@ public class Contract {
 
     public void setContractRooms(List<ContractRoom> contractRooms) {
         this.contractRooms = contractRooms;
+    }
+
+    public List<ContractUser> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<ContractUser> users) {
+        this.users = users;
     }
 }

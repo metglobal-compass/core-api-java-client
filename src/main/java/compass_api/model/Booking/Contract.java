@@ -1,11 +1,15 @@
 package compass_api.model.Booking;
 
-public class Contract {
+import java.util.List;
 
+import compass_api.model.User;
+
+public class Contract {
     private Integer id;
     private String paymentType;
     private Hotel hotel;
     private Region region;
+    private List<User> users;
 
     public Integer getId() {
         return id;
@@ -37,5 +41,13 @@ public class Contract {
 
     public void setRegion(Region region) {
         this.region = region;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }

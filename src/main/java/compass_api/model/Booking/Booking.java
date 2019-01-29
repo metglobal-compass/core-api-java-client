@@ -32,6 +32,7 @@ public class Booking {
     private String remark;
     private List<BookingModification> bookingModifications;
     private Region region;
+    private List<BookingTax> bookingTaxes;
 
     public Integer getId() {
         return id;
@@ -223,5 +224,13 @@ public class Booking {
 
     public void setBookingModifications(List<BookingModification> bookingModifications) {
         this.bookingModifications = bookingModifications;
+    }
+
+    public List<BookingTax> getBookingTaxes() {
+        return bookingTaxes;
+    }
+
+    public void setBookingTaxes(List<BookingTax> bookingTaxes) {
+        this.bookingTaxes = bookingTaxes;
     }
 }
