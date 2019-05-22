@@ -1,22 +1,31 @@
 package compass_api.model.UserHotelier;
 
 public class UserHotelier {
-	private ChannelManager channelManager;
-	private String channelManagerRateOption;
+    private ChannelManager channelManager;
+    private ChannelManagerEndpoint channelManagerEndpoint;
+    private String channelManagerRateOption;
 
-	public ChannelManager getChannelManager() {
-		return channelManager;
-	}
+    public ChannelManager getChannelManager() {
+        return channelManager;
+    }
 
-	public void setChannelManager(ChannelManager channelManager) {
-		this.channelManager = channelManager;
-	}
+    public void setChannelManager(ChannelManager channelManager) {
+        this.channelManager = channelManager;
+    }
 
-	public String getChannelManagerRateOption() {
-		return channelManagerRateOption;
-	}
+    public ChannelManagerEndpoint getChannelManagerEndpoint() {
+        return channelManagerEndpoint;
+    }
 
-	public void setChannelManagerRateOption(String channelManagerRateOption) {
-		this.channelManagerRateOption = channelManagerRateOption;
-	}
+    public void setChannelManagerEndpoint(ChannelManagerEndpoint channelManagerEndpoint) {
+        this.channelManagerEndpoint = channelManagerEndpoint;
+    }
+
+    public String getChannelManagerRateOption() {
+        return channelManagerRateOption;
+    }
+
+    public void setChannelManagerRateOption(String channelManagerRateOption) {
+        this.channelManagerRateOption = channelManagerRateOption;
+    }
 }
