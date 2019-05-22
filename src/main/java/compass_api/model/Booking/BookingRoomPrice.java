@@ -11,6 +11,8 @@ public class BookingRoomPrice {
     private String commission;
     private String discount;
     private String addOn;
+    private Float abtNet;
+    private Float aatNet;
     private Object markup;
     private Object detail;
     private BookingRoomPriceCreatedAt createdAt;
@@ -64,6 +66,14 @@ public class BookingRoomPrice {
 
     public void setAddOn(String addOn) {
         this.addOn = addOn;
+    }
+
+    public Float getAbtNet() {
+        return abtNet;
+    }
+
+    public Float getAatNet() {
+        return aatNet;
     }
 
     public Object getMarkup() {
