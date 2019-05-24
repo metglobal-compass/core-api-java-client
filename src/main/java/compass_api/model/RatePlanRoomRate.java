@@ -6,10 +6,14 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class RatePlanRoomRate {
-
+    private Integer id;
     private Date date;
     private HashMap<Integer, RateContent> rate;
     private RatePlanRoomRateContractRoom contractRoom;
+
+    public Integer getId() {
+        return id;
+    }
 
     public Date getDate() {
         return date;

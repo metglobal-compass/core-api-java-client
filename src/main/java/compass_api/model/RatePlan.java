@@ -14,6 +14,7 @@ public class RatePlan {
     private Integer defaultMinStayRestriction;
     private Integer defaultMaxStayRestriction;
     private List<RatePlanSaleChannel> ratePlanSaleChannels;
+    private List<RatePlanIncludedTax> ratePlanIncludedTaxes;
 
     public AllotmentPlan getAllotmentPlan() {
         return allotmentPlan;
@@ -94,4 +95,12 @@ public class RatePlan {
 	public void setRatePlanSaleChannels(List<RatePlanSaleChannel> ratePlanSaleChannels) {
 		this.ratePlanSaleChannels = ratePlanSaleChannels;
 	}
+
+    public List<RatePlanIncludedTax> getRatePlanIncludedTaxes() {
+        return ratePlanIncludedTaxes;
+    }
+
+    public void setRatePlanIncludedTaxes(List<RatePlanIncludedTax> ratePlanIncludedTaxes) {
+        this.ratePlanIncludedTaxes = ratePlanIncludedTaxes;
+    }
 }
