@@ -1,3 +1,6 @@
+## 0.3.0 (June 14, 2019)
+  - Add booking related entities for CP-2607
+
 ## 0.2.0 (June 10, 2019)
   - CP-2606 - Add needed fields and methods for user hotelier
 
