@@ -108,6 +108,10 @@ public interface CompassClient {
 
     void deleteRatePlansRooms(HashMap<String,String> headerMap,Integer ratePlanId, RateUpdate rateUpdate);
 
+    void deleteRatePlansRoomsWithRoomCode(
+        HashMap<String, String> headerMap, Integer ratePlanId, Integer contractRoomId, RatePlanRoomDelete ratePlanRoomDelete
+    );
+
     List<RatePlanCancelPolicy> getRatePlanCancelPoliciesWithQuery(HashMap<String,String> headerMap,Integer ratePlanId,
                                                                   HashMap<String, String> queryMap);
 

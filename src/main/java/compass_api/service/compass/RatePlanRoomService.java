@@ -1,19 +1,18 @@
 package compass_api.service.compass;
 
-import compass_api.model.RatePlanRoom;
-import compass_api.model.RateUpdate;
+import java.util.Map;
+
+import compass_api.model.RatePlanRoomDelete;
 import compass_api.service.HeaderService;
 import compass_api.service.HelperEntityService;
 import compass_api.service.ServiceProperties;
 import compass_api.model.RatePlanRoomUpdate;
+
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.Map;
 
 @EnableConfigurationProperties(ServiceProperties.class)
 public class RatePlanRoomService {
@@ -53,4 +52,14 @@ public class RatePlanRoomService {
         );
     }
 
+    public void deleteRatePlansRooms(
+        Map<String, String> headerMap, Integer ratePlanId, Integer roomId, RatePlanRoomDelete ratePlanRoomDelete
+    ) {
+        restTemplate.exchange(
+            serviceProperties.getUrl() + "/rate-plans/" + ratePlanId + "/rooms/" + roomId,
+            HttpMethod.DELETE,
+            new HttpEntity<>(ratePlanRoomDelete, headerService.httpHeaderService(headerMap)),
+            RatePlanRoomDelete.class
+        );
+    }
 }

@@ -403,6 +403,13 @@ public class CompassClientImpl implements CompassClient {
     }
 
     @Override
+    public void deleteRatePlansRoomsWithRoomCode(
+        HashMap<String, String> headerMap, Integer ratePlanId, Integer contractRoomId, RatePlanRoomDelete ratePlanRoomDelete
+    ) {
+        ratePlanRoomService.deleteRatePlansRooms(headerMap, ratePlanId, contractRoomId, ratePlanRoomDelete);
+    }
+
+    @Override
     public List<RatePlanCancelPolicy> getRatePlanCancelPoliciesWithQuery(HashMap<String,String> headerMap,
                                                                          Integer ratePlanId,
                                                                          HashMap<String, String> queryMap) {
