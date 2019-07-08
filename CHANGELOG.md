@@ -1,3 +1,6 @@
+## 0.4.0 (July 08, 2019)
+  - Add rate plan room rate delete request with pax number
+
 ## 0.3.0 (June 14, 2019)
   - Add booking related entities for CP-2607
 
