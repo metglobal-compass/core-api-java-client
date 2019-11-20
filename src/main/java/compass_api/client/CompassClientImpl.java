@@ -3,6 +3,7 @@ package compass_api.client;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import compass_api.model.*;
+import compass_api.model.Booking.Booking;
 import compass_api.model.Booking.PaymentInfo.PaymentInfo;
 import compass_api.model.Booking.ProductBooking;
 import compass_api.service.*;
@@ -355,6 +356,15 @@ public class CompassClientImpl implements CompassClient {
         String query = QueryProcessingService.getQueryParsingervice(queryMap);
 
         return productBookingService.getProductsBookings(headerMap, query);
+    }
+
+    @Override
+    public Booking getProductsBookingsWithId(
+        HashMap<String, String> headerMap, Integer bookingId, HashMap<String, String> queryMap
+    ) {
+        String query = QueryProcessingService.getQueryParsingervice(queryMap);
+
+        return productBookingService.getProductsBookingsWithId(headerMap, bookingId, query);
     }
 
     @Override
