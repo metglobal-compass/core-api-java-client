@@ -1,9 +1,11 @@
 package compass_api.service.compass;
 
+import compass_api.model.Booking.Booking;
 import compass_api.service.HelperEntityService;
 import compass_api.service.ServiceProperties;
 import compass_api.model.Booking.PaymentInfo.PaymentInfo;
 import compass_api.model.Booking.ProductBooking;
+import java.util.HashMap;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
@@ -21,15 +23,17 @@ public class ProductBookingService {
     private RestTemplate restTemplate;
     private HelperEntityService helperEntityService;
 
-    public ProductBookingService(ServiceProperties serviceProperties,
-                                 RestTemplate restTemplate,
-                                 HelperEntityService helperEntityService) {
-
+    public ProductBookingService(
+        ServiceProperties serviceProperties,
+        RestTemplate restTemplate,
+        HelperEntityService helperEntityService
+    ) {
         this.serviceProperties = serviceProperties;
         this.restTemplate = restTemplate;
         this.helperEntityService = helperEntityService;
     }
 
+    // TODO Rename it with getProductsBookingsList
     public ProductBooking getProductsBookings(
             Map<String, String> headerMap,
             String query
@@ -49,7 +53,6 @@ public class ProductBookingService {
             Integer bookingId
 
     ){
-
         HttpEntity<String> httpEntity = helperEntityService.httpEntity(headerMap);
 
         String paymentUrl = serviceProperties.getUrl() +
@@ -60,8 +63,17 @@ public class ProductBookingService {
         ResponseEntity<PaymentInfo> paymentInfoResponseEntity = restTemplate.exchange(
                 paymentUrl, HttpMethod.GET, httpEntity, new ParameterizedTypeReference<PaymentInfo>() {
                 });
+
         return paymentInfoResponseEntity.getBody();
     }
 
+    public Booking getProductsBookingsWithId(
+        HashMap<String, String> headerMap, Integer bookingId, String query
+    ) {
+        HttpEntity<String> httpEntity = helperEntityService.httpEntity(headerMap);
 
+        String url = serviceProperties.getUrl() + "/products/bookings/" + bookingId + query;
+
+        return restTemplate.exchange(url, HttpMethod.GET, httpEntity, Booking.class).getBody();
+    }
 }
