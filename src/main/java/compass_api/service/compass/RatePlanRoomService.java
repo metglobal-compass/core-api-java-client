@@ -1,13 +1,11 @@
 package compass_api.service.compass;
 
-import java.util.Map;
-
 import compass_api.model.RatePlanRoomDelete;
+import compass_api.model.RatePlanRoomUpdate;
 import compass_api.service.HeaderService;
 import compass_api.service.HelperEntityService;
 import compass_api.service.ServiceProperties;
-import compass_api.model.RatePlanRoomUpdate;
-
+import java.util.Map;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -49,6 +47,22 @@ public class RatePlanRoomService {
                 HttpMethod.POST,
                 ratePlanRoomUpdateHttpEntity,
                 RatePlanRoomUpdate.class
+        );
+    }
+
+    public void updateRatePlansRooms(
+        Map<String, String> headerMap,
+        Integer ratePlanId,
+        Integer roomId,
+        RatePlanRoomUpdate ratePlanRoomUpdate
+    ) {
+        HttpHeaders headers = headerService.httpHeaderService(headerMap);
+
+        restTemplate.exchange(
+            serviceProperties.getUrl() + "/rate-plans/" + ratePlanId + "/rooms/" + roomId,
+            HttpMethod.PUT,
+            new HttpEntity<>(ratePlanRoomUpdate, headers),
+            RatePlanRoomUpdate.class
         );
     }
 

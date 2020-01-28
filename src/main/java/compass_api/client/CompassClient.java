@@ -111,6 +111,13 @@ public interface CompassClient {
             RatePlanRoomUpdate ratePlanRoomUpdate
     );
 
+    void updateRatePlansRooms(
+        HashMap<String,String> headerMap,
+        Integer ratePlanId,
+        Integer roomId,
+        RatePlanRoomUpdate ratePlanRoomUpdate
+    );
+
     void deleteRatePlansRooms(HashMap<String,String> headerMap,Integer ratePlanId, RateUpdate rateUpdate);
 
     void deleteRatePlansRoomsWithRoomCode(
