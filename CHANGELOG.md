@@ -1,3 +1,7 @@
+## 0.6.0 (January 28, 2020)
+  - CP-2914 - Add update rate plans rooms
+  - Add get booking with id request
+
 ## 0.5.0 (July 11, 2019)
   - Add parent element to Region
 
