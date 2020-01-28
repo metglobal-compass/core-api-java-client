@@ -2,21 +2,60 @@ package compass_api.client;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
-import compass_api.model.*;
+import compass_api.model.AllotmentPlanRestriction;
+import compass_api.model.AllotmentPlanRestrictionUpdate;
+import compass_api.model.AllotmentPlanRoom;
+import compass_api.model.AllotmentPlanRoomUpdate;
+import compass_api.model.Booking.Booking;
 import compass_api.model.Booking.PaymentInfo.PaymentInfo;
 import compass_api.model.Booking.ProductBooking;
-import compass_api.service.*;
-import compass_api.service.compass.*;
+import compass_api.model.Consumer;
+import compass_api.model.Contract;
+import compass_api.model.ContractInventoryPlan;
+import compass_api.model.ContractList;
+import compass_api.model.ContractRatePlanList;
+import compass_api.model.ContractRoom;
+import compass_api.model.RatePlan;
+import compass_api.model.RatePlanCancelPolicy;
+import compass_api.model.RatePlanCancelPolicyUpdate;
+import compass_api.model.RatePlanRoom;
+import compass_api.model.RatePlanRoomDelete;
+import compass_api.model.RatePlanRoomRate;
+import compass_api.model.RatePlanRoomUpdate;
+import compass_api.model.RatePlanSaleChannel;
+import compass_api.model.RateUpdate;
+import compass_api.model.User;
+import compass_api.service.HeaderService;
+import compass_api.service.HelperEntityService;
+import compass_api.service.LoggingRequestInterceptor;
+import compass_api.service.QueryProcessingService;
+import compass_api.service.ServiceProperties;
+import compass_api.service.compass.AllotmentPlanRestrictionService;
+import compass_api.service.compass.AllotmentPlanRoomService;
+import compass_api.service.compass.ConsumerListService;
+import compass_api.service.compass.ContractInventoryPlanService;
+import compass_api.service.compass.ContractListService;
+import compass_api.service.compass.ContractRatePlanService;
+import compass_api.service.compass.ContractRoomListService;
+import compass_api.service.compass.ContractRoomService;
+import compass_api.service.compass.ContractService;
+import compass_api.service.compass.ProductBookingService;
+import compass_api.service.compass.RatePlanCancelPolicyService;
+import compass_api.service.compass.RatePlanRoomListService;
+import compass_api.service.compass.RatePlanRoomRateService;
+import compass_api.service.compass.RatePlanRoomService;
+import compass_api.service.compass.RatePlanSaleChannelListService;
+import compass_api.service.compass.RatePlanService;
+import compass_api.service.compass.UserService;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class CompassClientImpl implements CompassClient {
 
@@ -358,6 +397,15 @@ public class CompassClientImpl implements CompassClient {
     }
 
     @Override
+    public Booking getProductsBookingsWithId(
+        HashMap<String, String> headerMap, Integer bookingId, HashMap<String, String> queryMap
+    ) {
+        String query = QueryProcessingService.getQueryParsingervice(queryMap);
+
+        return productBookingService.getProductsBookingsWithId(headerMap, bookingId, query);
+    }
+
+    @Override
     public PaymentInfo getProductsBookingsPaymentInfo(HashMap<String,String> headerMap,
                                                       Integer bookingId) {
 
@@ -391,10 +439,23 @@ public class CompassClientImpl implements CompassClient {
     }
 
     @Override
-    public void createRatePlansRooms(HashMap<String,String> headerMap, Integer ratePlanId, Integer roomId,
-                                     RatePlanRoomUpdate ratePlanRoomUpdate) {
-
+    public void createRatePlansRooms(
+        HashMap<String, String> headerMap,
+        Integer ratePlanId,
+        Integer roomId,
+        RatePlanRoomUpdate ratePlanRoomUpdate
+    ) {
         ratePlanRoomService.createRatePlansRooms(headerMap, ratePlanId, roomId, ratePlanRoomUpdate);
+    }
+
+    @Override
+    public void updateRatePlansRooms(
+        HashMap<String, String> headerMap,
+        Integer ratePlanId,
+        Integer roomId,
+        RatePlanRoomUpdate ratePlanRoomUpdate
+    ) {
+        ratePlanRoomService.updateRatePlansRooms(headerMap, ratePlanId, roomId, ratePlanRoomUpdate);
     }
 
     @Override

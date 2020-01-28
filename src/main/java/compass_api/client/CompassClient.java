@@ -1,6 +1,7 @@
 package compass_api.client;
 
 import compass_api.model.*;
+import compass_api.model.Booking.Booking;
 import compass_api.model.Booking.PaymentInfo.PaymentInfo;
 import compass_api.model.Booking.ProductBooking;
 
@@ -85,6 +86,10 @@ public interface CompassClient {
             HashMap<String, String> headerMap,
             HashMap<String, String> queryMap);
 
+    Booking getProductsBookingsWithId(
+        HashMap<String, String> headerMap, Integer bookingId, HashMap<String, String> queryMap
+    );
+
     PaymentInfo getProductsBookingsPaymentInfo(HashMap<String, String> headerMap, Integer bookingId);
 
     List<RatePlanRoomRate> getRatePlansRoomsRatesList(HashMap<String,String> headerMap, Integer ratePlanId);
@@ -104,6 +109,13 @@ public interface CompassClient {
             Integer ratePlanId,
             Integer roomId,
             RatePlanRoomUpdate ratePlanRoomUpdate
+    );
+
+    void updateRatePlansRooms(
+        HashMap<String,String> headerMap,
+        Integer ratePlanId,
+        Integer roomId,
+        RatePlanRoomUpdate ratePlanRoomUpdate
     );
 
     void deleteRatePlansRooms(HashMap<String,String> headerMap,Integer ratePlanId, RateUpdate rateUpdate);
