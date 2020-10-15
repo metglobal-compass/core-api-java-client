@@ -51,9 +51,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
-import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
@@ -151,7 +152,7 @@ public class CompassClientImpl implements CompassClient {
                 .build();
 
         RestTemplate restTemplate = new RestTemplate(
-                new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory())
+            new BufferingClientHttpRequestFactory(new HttpComponentsClientHttpRequestFactory())
         );
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
@@ -302,8 +303,19 @@ public class CompassClientImpl implements CompassClient {
     public void createAllotmentPlansRooms(HashMap<String, String> headerMap,
                                           Integer allotmentPlanId,
                                           AllotmentPlanRoomUpdate allotmentPlanRoomUpdate) {
+        this.changeAllotmentPlansRooms(headerMap, allotmentPlanId, allotmentPlanRoomUpdate, HttpMethod.POST);
+    }
 
-        allotmentPlanRoomService.createAllotmentPlansRooms(headerMap, allotmentPlanId, allotmentPlanRoomUpdate);
+    @Override
+    public void changeAllotmentPlansRooms(
+        HashMap<String, String> headerMap,
+        Integer allotmentPlanId,
+        AllotmentPlanRoomUpdate allotmentPlanRoomUpdate,
+        HttpMethod requestType
+    ) {
+        allotmentPlanRoomService.changeAllotmentPlansRooms(
+            headerMap, allotmentPlanId, allotmentPlanRoomUpdate, requestType
+        );
     }
 
     @Override

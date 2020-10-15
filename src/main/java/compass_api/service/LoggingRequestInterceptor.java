@@ -26,7 +26,9 @@ public class LoggingRequestInterceptor implements ClientHttpRequestInterceptor{
 
     private void addLog(HttpRequest request, byte[] body, ClientHttpResponse response) {
         String requestContent = new String(body).replace("\n", "");
-        String logPayload = "Uri: " + request.getURI() + " Request: " + requestContent;
+        String logPayload = "Uri: " + request.getURI()
+            + " (" + request.getMethod().name() + ") "
+            + " Request: " + requestContent;
 
         // Bind all headers to log payload
         HttpHeaders headers = request.getHeaders();

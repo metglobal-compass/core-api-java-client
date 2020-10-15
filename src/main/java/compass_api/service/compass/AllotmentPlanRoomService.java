@@ -53,24 +53,24 @@ public class AllotmentPlanRoomService {
         return allotmentPlanResponseEntity.getBody();
     }
 
-    public void createAllotmentPlansRooms(
-            Map<String, String> headerMap,
-            Integer allotmentPlanId,
-            AllotmentPlanRoomUpdate allotmentPlanRoomUpdate
+    public void changeAllotmentPlansRooms(
+        Map<String, String> headerMap,
+        Integer allotmentPlanId,
+        AllotmentPlanRoomUpdate allotmentPlanRoomUpdate,
+        HttpMethod requestType
     ){
         HttpHeaders headers = headerService.httpHeaderService(headerMap);
 
         HttpEntity<AllotmentPlanRoomUpdate> allotmentPlanRoomUpdateHttpEntity = new HttpEntity<>(
-                allotmentPlanRoomUpdate,
-                headers
+            allotmentPlanRoomUpdate,
+            headers
         );
 
         restTemplate.exchange(
-                serviceProperties.getUrl() + "/allotment-plans/" +
-                        allotmentPlanId + "/rooms",
-                HttpMethod.POST,
-                allotmentPlanRoomUpdateHttpEntity,
-                AllotmentPlanRoomUpdate.class
+            serviceProperties.getUrl() + "/allotment-plans/" + allotmentPlanId + "/rooms",
+            requestType,
+            allotmentPlanRoomUpdateHttpEntity,
+            AllotmentPlanRoomUpdate.class
         );
     }
 }
