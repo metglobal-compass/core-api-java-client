@@ -1,3 +1,6 @@
+## 0.7.0 (October 15, 2020)
+  - Add support for more method types and other improvements
+
 ## 0.6.0 (January 28, 2020)
   - CP-2914 - Add update rate plans rooms
   - Add get booking with id request
