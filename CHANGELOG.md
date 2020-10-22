@@ -1,3 +1,6 @@
+## 0.8.0 (October 22, 2020)
+  - Hotfix - Add generic list template for pagination type responses
+
 ## 0.7.0 (October 15, 2020)
   - Add support for more method types and other improvements
 
