@@ -1,5 +1,6 @@
 package compass_api.service.compass;
 
+import compass_api.model.ListResponse;
 import java.util.List;
 import java.util.Map;
 
@@ -29,11 +30,11 @@ public class ConsumerListService {
 	public List<Consumer> getConsumersList(Map<String, String> headerMap) {
 		HttpEntity<String> entity = helperEntityService.httpEntity(headerMap);
 
-		ResponseEntity<List<Consumer>> consumersResponseEntity = restTemplate.exchange(
+		ResponseEntity<ListResponse<Consumer>> consumersResponseEntity = restTemplate.exchange(
 				serviceProperties.getUrl() + "/consumers", HttpMethod.GET,
-				entity, new ParameterizedTypeReference<List<Consumer>>() {
+				entity, new ParameterizedTypeReference<ListResponse<Consumer>>() {
 				});
 
-		return consumersResponseEntity.getBody();
+		return consumersResponseEntity.getBody().getData();
 	}
 }

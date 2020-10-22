@@ -4,6 +4,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
+import compass_api.model.ListResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,8 +27,9 @@ import org.springframework.web.client.RestTemplate;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ConsumerListServiceUnitTest {
+
 	@Test
-	public void getConsumers(){
+	public void getConsumers() {
 		ServiceProperties serviceProperties = Mockito.mock(ServiceProperties.class);
 		RestTemplate restTemplate = Mockito.mock(RestTemplate.class);
 		HelperEntityService helperEntityService = Mockito.mock(HelperEntityService.class);
@@ -40,22 +42,22 @@ public class ConsumerListServiceUnitTest {
 		headerMap.put("x-consumer-key","1");
 		headerMap.put("x-contract-id", "1");
 
-		List<Consumer> consumerList = new ArrayList<>();
 		Consumer consumer = new Consumer();
 		consumer.setId(1);
 		consumer.setSlug("slug");
 		consumer.setConsumerKey("xxxxx");
-		consumerList.add(consumer);
 
-		ResponseEntity<List<Consumer>> consumerListResponseEntity = new ResponseEntity<>(
-				consumerList, HttpStatus.OK
+		ListResponse<Consumer> response = new ListResponse<Consumer>().addElement(consumer);
+
+		ResponseEntity<ListResponse<Consumer>> consumerListResponseEntity = new ResponseEntity<>(
+				response, HttpStatus.OK
 		);
 
 		when(restTemplate.exchange(
 				Matchers.anyString(),
 				any(HttpMethod.class),
 				Matchers.<HttpEntity<?>> any(),
-				Matchers.<ParameterizedTypeReference<List<Consumer>>> any()
+				Matchers.<ParameterizedTypeReference<ListResponse<Consumer>>> any()
 				)).thenReturn(consumerListResponseEntity);
 
 		consumerListService.getConsumersList(headerMap);
@@ -64,7 +66,7 @@ public class ConsumerListServiceUnitTest {
 				Mockito.anyString(),
 				Mockito.<HttpMethod> any(),
 				Mockito.<HttpEntity<?>> any(),
-				Mockito.<ParameterizedTypeReference<List<Consumer>>> any()
+				Mockito.<ParameterizedTypeReference<ListResponse<Consumer>>> any()
 		);
 	}
 }
