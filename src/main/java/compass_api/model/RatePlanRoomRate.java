@@ -9,6 +9,7 @@ public class RatePlanRoomRate {
     private Integer id;
     private Date date;
     private HashMap<Integer, RateContent> rate;
+    private String remark;
     private RatePlanRoomRateContractRoom contractRoom;
 
     public Integer getId() {
@@ -25,6 +26,10 @@ public class RatePlanRoomRate {
 
     public HashMap<Integer, RateContent> getRate() {
         return rate;
+    }
+
+    public String getRemark() {
+        return remark;
     }
 
     public RatePlanRoomRateContractRoom getContractRoom() {
