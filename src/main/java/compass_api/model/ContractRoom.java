@@ -22,6 +22,8 @@ public class ContractRoom {
 
     private Integer babyMaxAge;
 
+    private Integer childMinAge;
+
     private Integer childMaxAge;
 
     private RoomCategory roomCategory;
@@ -80,6 +82,10 @@ public class ContractRoom {
 
     public Integer getBabyMaxAge() {
         return babyMaxAge;
+    }
+
+    public Integer getChildMinAge() {
+        return childMinAge;
     }
 
     public Integer getChildMaxAge() {
