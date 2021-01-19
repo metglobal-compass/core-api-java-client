@@ -6,7 +6,7 @@ import java.util.Map;
 public class RateContent {
 
     private Map<Integer, Float> adult;
-    private Map<Integer, ArrayList<Float>> child;
+    private Map<Integer, Object> child; // Value can be List or Map.
 
     public Map<Integer, Float> getAdult() {
         return adult;
@@ -16,7 +16,7 @@ public class RateContent {
         this.adult = adult;
     }
 
-    public Map<Integer, ArrayList<Float>> getChild() {
+    public Map<Integer, Object> getChild() {
         return child;
     }
 }
