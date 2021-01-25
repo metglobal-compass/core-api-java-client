@@ -1,3 +1,8 @@
+## 0.8.1 (January 25, 2021)
+  - Fix RateContent value
+  - Add remark field
+  - Add childMinAge field
+
 ## 0.8.0 (October 22, 2020)
   - Hotfix - Add generic list template for pagination type responses
 
