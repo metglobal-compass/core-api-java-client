@@ -251,9 +251,15 @@ public class CompassClientImplUnitTest {
         headerMap.put("x-user-id", "1");
         headerMap.put("x-consumer-key", "1");
 
-        when(service.getConsumersList(headerMap)).thenReturn(consumerListResponseEntity.getBody());
+        HashMap<String, String> queryMap = new HashMap<>();
+        queryMap.put("perPage", "1000");
 
-        List<Consumer> clientConsumers = client.getConsumersList(headerMap);
+        when(service.getConsumersList(
+            headerMap, QueryProcessingService.getQueryParsingervice(queryMap)
+        ))
+            .thenReturn(consumerListResponseEntity.getBody());
+
+        List<Consumer> clientConsumers = client.getConsumersList(headerMap, queryMap);
 
         assertEquals(consumerListResponseEntity.getBody(), clientConsumers);
     }

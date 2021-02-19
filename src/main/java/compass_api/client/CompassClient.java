@@ -151,5 +151,7 @@ public interface CompassClient {
 
     User getUsers(HashMap<String, String> headerMap, Integer userId, HashMap<String, String> queryMap);
 
-    List<Consumer> getConsumersList(HashMap<String, String> headerMap);
+    List<Consumer> getConsumersList(
+        HashMap<String, String> headerMap, HashMap<String, String> queryMap
+    );
 }
