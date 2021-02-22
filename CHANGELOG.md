@@ -1,3 +1,6 @@
+## 0.9.0 (February 22, 2021)
+  - Add query to Consumer entity
+
 ## 0.8.1 (January 25, 2021)
   - Fix RateContent value
   - Add remark field
