@@ -535,7 +535,11 @@ public class CompassClientImpl implements CompassClient {
     }
 
     @Override
-    public List<Consumer> getConsumersList(HashMap<String, String> headerMap) {
-        return consumerListService.getConsumersList(headerMap);
+    public List<Consumer> getConsumersList(
+        HashMap<String, String> headerMap, HashMap<String, String> queryMap
+    ) {
+        return consumerListService.getConsumersList(
+            headerMap, QueryProcessingService.getQueryParsingervice(queryMap)
+        );
     }
 }

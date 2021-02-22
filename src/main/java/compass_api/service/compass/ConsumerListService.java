@@ -27,11 +27,11 @@ public class ConsumerListService {
 		this.helperEntityService = helperEntityService;
 	}
 
-	public List<Consumer> getConsumersList(Map<String, String> headerMap) {
+	public List<Consumer> getConsumersList(Map<String, String> headerMap, String query) {
 		HttpEntity<String> entity = helperEntityService.httpEntity(headerMap);
 
 		ResponseEntity<ListResponse<Consumer>> consumersResponseEntity = restTemplate.exchange(
-				serviceProperties.getUrl() + "/consumers", HttpMethod.GET,
+				serviceProperties.getUrl() + "/consumers" + query, HttpMethod.GET,
 				entity, new ParameterizedTypeReference<ListResponse<Consumer>>() {
 				});
 

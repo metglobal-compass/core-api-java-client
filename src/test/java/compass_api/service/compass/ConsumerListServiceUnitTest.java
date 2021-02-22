@@ -5,9 +5,9 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
 import compass_api.model.ListResponse;
-import java.util.ArrayList;
+import compass_api.service.QueryProcessingService;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 
 import compass_api.model.Consumer;
 import compass_api.service.HelperEntityService;
@@ -60,7 +60,10 @@ public class ConsumerListServiceUnitTest {
 				Matchers.<ParameterizedTypeReference<ListResponse<Consumer>>> any()
 				)).thenReturn(consumerListResponseEntity);
 
-		consumerListService.getConsumersList(headerMap);
+		consumerListService.getConsumersList(
+				headerMap,
+				QueryProcessingService.getQueryParsingervice(Collections.singletonMap("perPage", "1000"))
+		);
 
 		Mockito.verify(restTemplate, times(1)).exchange(
 				Mockito.anyString(),
