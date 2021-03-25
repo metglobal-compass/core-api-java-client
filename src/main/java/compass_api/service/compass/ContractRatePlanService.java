@@ -1,8 +1,10 @@
 package compass_api.service.compass;
 
+import compass_api.model.ContractRatePlan;
+import compass_api.model.ListResponse;
 import compass_api.service.HelperEntityService;
 import compass_api.service.ServiceProperties;
-import compass_api.model.ContractRatePlanList;
+import java.util.List;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
@@ -15,7 +17,7 @@ import java.util.Map;
 @EnableConfigurationProperties(ServiceProperties.class)
 public class ContractRatePlanService {
 
-    private  ServiceProperties serviceProperties;
+    private ServiceProperties serviceProperties;
     private RestTemplate restTemplate;
     private HelperEntityService helperEntityService;
 
@@ -28,20 +30,22 @@ public class ContractRatePlanService {
         this.helperEntityService = helperEntityService;
     }
 
-    public ContractRatePlanList getContractsRatePlans(
+    public List<ContractRatePlan> getContractsRatePlans(
             Map<String, String> headerMap,
             Integer contractId,
             String query
     ) {
         HttpEntity<String> entity = helperEntityService.httpEntity(headerMap);
 
-        ResponseEntity<ContractRatePlanList> ratePlanListResponseEntity;
+        ResponseEntity<ListResponse<ContractRatePlan>> ratePlanListResponseEntity;
 
         ratePlanListResponseEntity = restTemplate.exchange(
-                serviceProperties.getUrl() + "/contracts/" + contractId + "/rate-plans" + query,
-                HttpMethod.GET, entity, new ParameterizedTypeReference<ContractRatePlanList>() {
-                });
+            serviceProperties.getUrl() + "/contracts/" + contractId + "/rate-plans" + query,
+            HttpMethod.GET,
+            entity,
+            new ParameterizedTypeReference<ListResponse<ContractRatePlan>>(){}
+        );
 
-        return ratePlanListResponseEntity.getBody();
+        return ratePlanListResponseEntity.getBody().getData();
     }
 }
