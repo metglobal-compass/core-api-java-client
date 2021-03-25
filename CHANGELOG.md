@@ -1,3 +1,6 @@
+## 0.9.1 (March 25, 2021)
+  - Fix contract rate plan response
+
 ## 0.9.0 (February 22, 2021)
   - Add query to Consumer entity
 
