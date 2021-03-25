@@ -4,7 +4,9 @@ import com.google.gson.reflect.TypeToken;
 import compass_api.model.AllotmentPlanRestriction;
 import compass_api.model.AllotmentPlanRoom;
 import compass_api.model.Consumer;
+import compass_api.model.ContractRatePlan;
 import compass_api.model.ContractRatePlanList;
+import compass_api.model.ListResponse;
 import compass_api.model.RatePlanSaleChannel;
 import compass_api.model.User;
 import compass_api.service.QueryProcessingService;
@@ -54,11 +56,12 @@ public class CompassClientImplUnitTest {
 
         Gson gson = new Gson();
 
-        ContractRatePlanList contractRatePlanList = gson.fromJson(restTemplateContractRatePlan,
-                ContractRatePlanList.class);
+        ListResponse<ContractRatePlan> contractRatePlanList = gson.fromJson(
+            restTemplateContractRatePlan, new TypeToken<ListResponse<ContractRatePlan>>(){}.getType()
+        );
 
-        ResponseEntity<ContractRatePlanList> contractRatePlanListResponseEntity =
-                new ResponseEntity<>(contractRatePlanList, HttpStatus.OK);
+        ResponseEntity<ListResponse<ContractRatePlan>> contractRatePlanListResponseEntity =
+            new ResponseEntity<>(contractRatePlanList, HttpStatus.OK);
 
         HashMap<String, String> headerMap = new HashMap<>();
         headerMap.put("x-consumer-key","1");
@@ -69,10 +72,10 @@ public class CompassClientImplUnitTest {
 
         compassClient.setContractRatePlanService(contractRatePlanService);
 
-        when(contractRatePlanService.getContractsRatePlans(headerMap, 117,"")).
-                thenReturn(contractRatePlanListResponseEntity.getBody());
+        when(contractRatePlanService.getContractsRatePlans(headerMap, 117,""))
+            .thenReturn(contractRatePlanListResponseEntity.getBody().getData());
 
-        assertEquals(contractRatePlanListResponseEntity.getBody(),
+        assertEquals(contractRatePlanListResponseEntity.getBody().getData(),
                 compassClient.getContractsRatePlans(headerMap, 117));
     }
 

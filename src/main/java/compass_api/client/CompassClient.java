@@ -11,7 +11,7 @@ import org.springframework.http.HttpMethod;
 
 public interface CompassClient {
 
-    ContractRatePlanList getContractsRatePlans(HashMap<String, String> headerMap, Integer contractId);
+    List<ContractRatePlan> getContractsRatePlans(HashMap<String, String> headerMap, Integer contractId);
 
     List<AllotmentPlanRestriction> getAllotmentPlansRestrictionsListWithQuery(
             HashMap<String, String> headerMap,
@@ -55,7 +55,7 @@ public interface CompassClient {
 
     ContractInventoryPlan getContractsInventoryPlans(HashMap<String, String> headerMap, Integer contractId);
 
-    ContractRatePlanList getContractsRatePlansWithQuery(
+    List<ContractRatePlan> getContractsRatePlansWithQuery(
             HashMap<String, String> headerMap,
             Integer contractId,
             HashMap<String, String> mapQuery

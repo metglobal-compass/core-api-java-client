@@ -13,7 +13,7 @@ import compass_api.model.Consumer;
 import compass_api.model.Contract;
 import compass_api.model.ContractInventoryPlan;
 import compass_api.model.ContractList;
-import compass_api.model.ContractRatePlanList;
+import compass_api.model.ContractRatePlan;
 import compass_api.model.ContractRoom;
 import compass_api.model.RatePlan;
 import compass_api.model.RatePlanCancelPolicy;
@@ -242,8 +242,9 @@ public class CompassClientImpl implements CompassClient {
     }
 
     @Override
-    public ContractRatePlanList getContractsRatePlans(HashMap<String, String> headerMap, Integer contractId) {
-
+    public List<ContractRatePlan> getContractsRatePlans(
+        HashMap<String, String> headerMap, Integer contractId
+    ) {
         return contractRatePlanService.getContractsRatePlans(headerMap, contractId, "");
     }
 
@@ -325,8 +326,9 @@ public class CompassClientImpl implements CompassClient {
     }
 
     @Override
-    public ContractRatePlanList getContractsRatePlansWithQuery(HashMap<String,String> headerMap, Integer contractId, HashMap<String, String> queryMap) {
-
+    public List<ContractRatePlan> getContractsRatePlansWithQuery(
+        HashMap<String,String> headerMap, Integer contractId, HashMap<String, String> queryMap
+    ) {
         String query = QueryProcessingService.getQueryParsingervice(queryMap);
 
         return contractRatePlanService.getContractsRatePlans(headerMap, contractId, query);
