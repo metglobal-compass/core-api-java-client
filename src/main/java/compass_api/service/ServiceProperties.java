@@ -3,10 +3,11 @@ package compass_api.service;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-@ConfigurationProperties("compass_api_host")
+@ConfigurationProperties(prefix = "compass")
 public class ServiceProperties {
 
     private String url;
+    private boolean requestLogging;
 
     public String getUrl() {
         return url;
@@ -14,5 +15,13 @@ public class ServiceProperties {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public boolean isRequestLogging() {
+        return requestLogging;
+    }
+
+    public void setRequestLogging(boolean requestLogging) {
+        this.requestLogging = requestLogging;
     }
 }
