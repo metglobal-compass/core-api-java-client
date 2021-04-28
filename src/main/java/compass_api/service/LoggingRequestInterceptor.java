@@ -13,13 +13,21 @@ import java.util.Scanner;
 
 public class LoggingRequestInterceptor implements ClientHttpRequestInterceptor{
 
+    private boolean requestLogging;
+
+    public LoggingRequestInterceptor(boolean requestLogging) {
+        this.requestLogging = requestLogging;
+    }
+
     @Override
     public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution)
             throws IOException {
 
         ClientHttpResponse response = execution.execute(request, body);
 
-        this.addLog(request, body, response);
+        if (requestLogging) {
+            this.addLog(request, body, response);
+        }
 
         return response;
     }

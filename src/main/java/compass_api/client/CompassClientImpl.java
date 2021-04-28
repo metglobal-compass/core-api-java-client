@@ -158,7 +158,7 @@ public class CompassClientImpl implements CompassClient {
 
         List<ClientHttpRequestInterceptor> interceptors;
         interceptors = new ArrayList<>();
-        interceptors.add(new LoggingRequestInterceptor());
+        interceptors.add(new LoggingRequestInterceptor(serviceProperties.isRequestLogging()));
         restTemplate.setInterceptors(interceptors);
 
         contractRatePlanService = new ContractRatePlanService(
