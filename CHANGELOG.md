@@ -1,3 +1,6 @@
+## 0.9.2 (April 28, 2021)
+  - Make request logging optional
+
 ## 0.9.1 (March 25, 2021)
   - Fix contract rate plan response
 
